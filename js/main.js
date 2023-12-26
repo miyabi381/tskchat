@@ -17,3 +17,36 @@ window.onload = function () {
     window.addEventListener('scroll', Animation);
     getTitle();
 }
+
+/** テストアラート */
+function test(temp) {
+    alert(temp);
+
+}
+
+
+/** テキストエリアの文字取得・出力 */
+function outText() {
+    var inputText = document.getElementById('intext');
+    var outputText = document.getElementById('outtext');
+    outputText.innerText = inputText.value;
+    return outputText.textContent;
+}
+
+/** 文字列検索・切り取り・出力 */
+function searchText() {
+    var searchedText = document.getElementById('searchtext');
+    var instagramId = document.getElementById('instaid');
+    var searchStrFront = outText().indexOf('"');
+    var searchStrBehind = outText().lastIndexOf('"');
+    searchedText.textContent = searchStrFront + " " + searchStrBehind;
+    instagramId.textContent = outText().substring(searchStrFront + 2, searchStrBehind);
+    return instagramId.textContent;
+}https://www.instagram.com/anime.uz/
+
+/** インスタグラムURL出力 */
+function outInstaIdUrl(){
+    var outUrl = document.getElementById("instaidurl");
+    outUrl.textContent = "https://www.instagram.com/"+searchText()+"/";
+    window.location.href = outUrl.textContent;
+}

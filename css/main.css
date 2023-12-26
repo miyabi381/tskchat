@@ -2,3 +2,41 @@ html {
 	font-family: sans-serif;
 	scroll-behavior: smooth;
 }
+
+html * {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0 0 0 1em;
+	background-color: #fffcf5;
+}
+
+.wide {
+	margin: 0 auto 0 auto;
+	max-width: 960px;
+}
+
+/***追従するトップへ戻るボタン***/
+.page-top {
+	position: fixed;
+	right: 5px;
+	bottom: 20px;
+	width: 50px;
+}
+
+.up {
+	opacity: 0;
+	transition: all 1s ease;
+}
+
+.up.show {
+	opacity: 1;
+	transform: none;
+}
+
+.op {
+	transform: translate(0, 100px);
+}
+
+/***トップへ戻るボタンここまで ***/
