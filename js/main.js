@@ -15,7 +15,6 @@ window.onload = function () {
         }
     }
     window.addEventListener('scroll', Animation);
-    getTitle();
 }
 
 /** テストアラート */
@@ -42,11 +41,17 @@ function searchText() {
     searchedText.textContent = searchStrFront + " " + searchStrBehind;
     instagramId.textContent = outText().substring(searchStrFront + 2, searchStrBehind);
     return instagramId.textContent;
-}https://www.instagram.com/anime.uz/
+}
 
 /** インスタグラムURL出力 */
 function outInstaIdUrl(){
     var outUrl = document.getElementById("instaidurl");
     outUrl.textContent = "https://www.instagram.com/"+searchText()+"/";
+if(searchText() == ""){
+    outUrl.textContent = "IDが無いよ！";
+}else{
     window.location.href = outUrl.textContent;
+
+}
+
 }

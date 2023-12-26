@@ -17,6 +17,16 @@ body {
 	max-width: 960px;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+button{
+    height: 5em;
+    width: 10em;
+}
+
 /***追従するトップへ戻るボタン***/
 .page-top {
 	position: fixed;
@@ -40,3 +50,11 @@ body {
 }
 
 /***トップへ戻るボタンここまで ***/
+
+
+
+
+@media screen and (max-width: 767px) {
+
+
+}
