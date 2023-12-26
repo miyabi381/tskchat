@@ -39,19 +39,40 @@ function searchText() {
     var searchStrFront = outText().indexOf('"');
     var searchStrBehind = outText().lastIndexOf('"');
     searchedText.textContent = searchStrFront + " " + searchStrBehind;
-    instagramId.textContent = outText().substring(searchStrFront + 2, searchStrBehind);
-    return instagramId.textContent;
+    instagramId.textContent = outText().substring(searchStrFront + 1, searchStrBehind);
+    if (instagramId.textContent.indexOf(" ") == -1) { // IDに空白が含まれていないか
+        return instagramId.textContent;
+    } else {
+        return instagramId.textContent.substring(1);
+    }
 }
 
 /** インスタグラムURL出力 */
-function outInstaIdUrl(){
+function outInstaIdUrl() {
     var outUrl = document.getElementById("instaidurl");
-    outUrl.textContent = "https://www.instagram.com/"+searchText()+"/";
-if(searchText() == ""){
-    outUrl.textContent = "IDが無いよ！";
-}else{
-    window.location.href = outUrl.textContent;
+    outUrl.textContent = "https://www.instagram.com/" + searchText() + "/";
+    if (searchText() == "") { // IDが空白か
+        outUrl.textContent = "IDが無いよ！";
+    } else {
+        window.location.href = outUrl.textContent;
+
+    }
 
 }
 
-}
+
+
+
+const target = document.querySelector("div.target");
+
+target.addEventListener("paste", (event) => {
+    event.preventDefault();
+
+    let paste = (event.clipboardData || window.clipboardData).getData("text");
+    paste = paste.toUpperCase();
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return;
+    selection.deleteFromDocument();
+    selection.getRangeAt(0).insertNode(document.createTextNode(paste));
+    selection.collapseToEnd();
+});
